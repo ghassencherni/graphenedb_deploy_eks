@@ -28,7 +28,18 @@ node {
 
         /* Copy "config" file, it's needed to deploy the etcd, prometheus and grafana EKS cluster, we will used it as artifacts */
         archiveArtifacts artifacts: 'config'
-
+        
+        /* Install and configure helm (+teller) */
+        sh """
+          export AWS_ACCESS_KEY_ID='$ACCESS_KEY'
+          export AWS_SECRET_ACCESS_KEY='$SECRET_ACCESS'
+          export KUBECONFIG=config
+          helm init
+          helm init --upgrade
+          kubectl create serviceaccount --namespace kube-system tiller
+          kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+          kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+         """
     }
   }
 }
