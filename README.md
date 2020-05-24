@@ -1,5 +1,4 @@
-# terraform_aws_eks
-Pipeline (Jenkinsfile) to deploy AWS resources on AWS, it comes with other projects : [deploy_jenkins](https://github.com/ghassencherni/deploy_jenkins), [wordpress_k8s](https://github.com/ghassencherni/wordpress_k8s) and [wp_custom_docker](https://github.com/ghassencherni/wp_custom_docker).
+
 
 Please start loocking in [deploy_jenkins](https://github.com/ghassencherni/deploy_jenkins) First.
 
