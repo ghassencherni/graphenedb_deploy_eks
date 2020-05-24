@@ -4,8 +4,8 @@ resource "local_file" "kubeconfig" {
 apiVersion: v1
 clusters:
 - cluster:
-    server: ${module.eks-graphenedb.cluster-endpoint}
-    certificate-authority-data: ${module.eks-graphenedb.cert-auth}
+    server: ${module.eks-mykveks.cluster-endpoint}
+    certificate-authority-data: ${module.eks-mykveks.cert-auth}
   name: kubernetes
 contexts:
 - context:
@@ -24,7 +24,7 @@ users:
       args:
         - "token"
         - "-i"
-        - "graphenedb-cluster"
+        - "mykveks-cluster"
 KUBECONFIG
 
   filename = "config"

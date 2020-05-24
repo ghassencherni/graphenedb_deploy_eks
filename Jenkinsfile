@@ -1,7 +1,7 @@
 node {
   
   /* Cloning our repo in the workspace */
-  git 'https://github.com/ghassencherni/graphenedb_deploy_eks.git'
+  git 'https://github.com/ghassencherni/mykveks_deploy_eks.git'
 
   if(action == 'Deploy') {
     stage('init') {

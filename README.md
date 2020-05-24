@@ -35,7 +35,7 @@ It calls terraform to deploy 3 modules :
 -- Create private security group ( ingreee : 3306 from public cidr subnets ) => allows connection from PODS to RDS 
 
 
-- Eks-graphenedb module:
+- Eks-mykveks module:
 
 -- Create IAM Roles : allows EKS service to manage other AWS services ( for cluster and for the worker nodes ) 
 
